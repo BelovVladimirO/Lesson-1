@@ -1,42 +1,28 @@
 class Station
-  attr_reader :title, :trains
-  attr_accessor :cargo, :passenger
-def initialize(title)
-    @title = title
-    @cargo = cargo
-    @passenger = passenger
-    @trains = []
-    @cargo = []
-    @passenger = []
+  attr_reader :title, :train, :type, :trains
+  def initialize(title)
+  @title = title
+  @trains = []
+       
 end
 
 def arrival(train)
-    self.trains << train
-    self.trains.each do  |train| 
-      if train.type == "qwe"
-      self.cargo << 1
-      else
-      self.passenger << 1
-      
-end      
-end 
+  self.trains << train
 end
 
+def types(type)
+  if type == 'cargo'
+  self.trains.select {|train| train.type ==  'cargo'}
+  elsif type == 'passenger'
+  self.trains.select {|train| train.type ==  'passenger'}
+end      
+end 
 
 def trains_at_the_station
-    @trains = self.trains    
+  @trains 
 end
 
 def train_departure(train)
-    self.trains.each do  |train| 
-      if train.type == "qwe"
-      self.cargo.delete(1)
-      else
-      self.passenger.delete(1)
-      
-end      
-end 
-    self.trains.delete(train)
-    
+  self.trains.delete(train)
 end
 end
